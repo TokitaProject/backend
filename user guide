@@ -1,0 +1,7 @@
+php artisan serve --> run project
+php artisan migrate --> migrate table in database
+php artisan make:controller --> make controller
+php artisan make:models -->make model
+
+full documentation laravel 
+https://laravel.com/docs/9.x
