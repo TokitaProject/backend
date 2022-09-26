@@ -1,0 +1,5 @@
+#api Login
+http://127.0.0.1:8000/api/login (post method)
+
+#api register
+http://127.0.0.1:8000/api/register (post method)
