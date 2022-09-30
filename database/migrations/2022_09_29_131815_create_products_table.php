@@ -16,11 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->integer('tokoId');
-            $table->string('namaBarang');
-            $table->integer('harga');
-            $table->integer('stok');
-            $table->string('deskripsi');
-            $table->string('kategori');
+            $table->string('name');
+            $table->integer('price');
+            $table->integer('stocks');
+            $table->string('description');
+            $table->string('categories');
             $table->timestamps();
         });
     }
