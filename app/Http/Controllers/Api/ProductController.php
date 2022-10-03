@@ -72,18 +72,18 @@ class ProductController extends Controller
         }
     }
 
-    public function upload(Request $request) {
-        $fileName = "";
-        if ($request->image) {
-            $image = $request->image->getClientOriginalName();
-            $image = str_replace(' ', '', $image);
-            $image = date('Hs') . rand(1, 999) . "_" . $image;
-            $fileName = $image;
-            $request->image->storeAs('public/product', $image);
+    // public function upload(Request $request) {
+    //     $fileName = "";
+    //     if ($request->image) {
+    //         $image = $request->image->getClientOriginalName();
+    //         $image = str_replace(' ', '', $image);
+    //         $image = date('Hs') . rand(1, 999) . "_" . $image;
+    //         $fileName = $image;
+    //         $request->image->storeAs('public/product', $image);
 
-            return $this->success($fileName);
-        } else {
-            return $this->error("Image wajib di kirim");
-        }
-    } 
+    //         return $this->success($fileName);
+    //     } else {
+    //         return $this->error("Image wajib di kirim");
+    //     }
+    // } 
 }

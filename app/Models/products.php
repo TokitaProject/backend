@@ -16,6 +16,7 @@ class products extends Model
         'name',
         'description',
         'price',
+        'categories',
         'stocks',
         'isActive',
     ];
