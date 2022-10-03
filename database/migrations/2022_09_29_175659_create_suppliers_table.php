@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlamatsTable extends Migration
+class CreateSuppliersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,19 @@ class CreateAlamatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('alamats', function (Blueprint $table) {
+        Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->integer('tokoid');
-            $table->string('companyname');
-            $table->string('contactname');
-            $table->string('contacttitle');
-            $table->string('address');
+            $table->varchar('supplierID');
+            $table->varchar('companyname');
+            $table->varchar('contactname');
+            $table->varchar('contacttitle');
+            $table->varchar('addres');
             $table->varchar('city');
             $table->varchar('region');
             $table->varchar('postalcode');
             $table->varchar('phone');
-            //$table->varchar('fax');
+            $table->varchar('fax');
+            $table->varchar('homepage');
             $table->timestamps();
         });
     }
@@ -36,6 +37,6 @@ class CreateAlamatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alamats');
+        Schema::dropIfExists('suppliers');
     }
 }
