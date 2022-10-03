@@ -12,7 +12,6 @@ class products extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'tokoId',
         'name',
         'description',
         'price',

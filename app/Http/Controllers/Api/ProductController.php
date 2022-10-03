@@ -23,7 +23,6 @@ class ProductController extends Controller
 
     public function store(Request $request): JsonResponse {
         $validasi = Validator::make($request->all(), [
-            'tokoId' => 'required',
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
