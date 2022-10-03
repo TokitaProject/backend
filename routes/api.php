@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // use app\Http\Controller\Api\AuthController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TokoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::put('update-user/{id}', [AuthController::class, 'update']);
 
 Route::post('upload-user/{id}', [AuthController::class, 'upload']);
+
+Route::resource('toko', TokoController::class);
+Route::get('toko-user/{id}', [TokoController::class, 'cekToko']);
+Route::resource('alamat-toko', AlamatTokoController::class);
