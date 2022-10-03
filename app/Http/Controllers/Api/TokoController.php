@@ -13,6 +13,7 @@ class TokoController extends Controller
     public function store(Request $request) {
         $validasi = Validator::make($request->all(), [
             'name' => 'required',
+            // 'alamatId' => 'required',
             'userId' => 'required',
             'kota' => 'required'
         ]);
@@ -28,7 +29,7 @@ class TokoController extends Controller
 
     public function cekToko($id)
     {
-        $user = User::where('id', $id)->with('toko')->first();
+        $user = User::where('id', $id)->with('Toko')->first();
         if ($user) {
             return $this->success($user);
         }else{
