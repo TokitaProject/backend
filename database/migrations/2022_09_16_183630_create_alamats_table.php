@@ -20,6 +20,16 @@ class CreateAlamatsTable extends Migration
             $table->string('alamat');
             $table->string('kota');
             $table->string('kecamatan');
+            // $table->integer('tokoid');
+            // $table->string('companyname');
+            // $table->string('contactname');
+            // $table->string('contacttitle');
+            // $table->string('address');
+            // $table->varchar('city');
+            // $table->varchar('region');
+            // $table->varchar('postalcode');
+            // $table->varchar('phone');
+            //$table->varchar('fax');
             $table->timestamps();
         });
     }
