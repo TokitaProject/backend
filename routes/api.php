@@ -37,6 +37,6 @@ Route::post('upload-user/{id}', [AuthController::class, 'upload']);
 Route::resource('toko', TokoController::class);
 Route::get('toko-user/{id}', [TokoController::class, 'cekToko']);
 Route::resource('alamat-toko', AlamatTokoController::class);
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
+// Route::post('login', [AuthController::class, 'login']);
+// Route::post('register', [AuthController::class, 'register']);
 Route::post('products', [ProductController::class, 'store']);
