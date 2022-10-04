@@ -3,15 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AlamatToko;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\AlamatToko;
 
-class AlamatTokoController extends Controller
-{
+class AlamatTokoController extends Controller {
+    public function index() {
 
-    public function store(Request $request)
-    {
+    }
+
+    public function create() {
+
+    }
+
+    public function store(Request $request) {
         $validasi = Validator::make($request->all(), [
             'alamat' => 'required',
             'provinsi' => 'required',
@@ -22,11 +27,12 @@ class AlamatTokoController extends Controller
         ]);
 
         if ($validasi->fails()) {
-            return $this->error($validasi->errors->frist());
+            return $this->error($validasi->errors()->first());
         }
 
-        $toko = AlamatToko::where('tokoId', $id)->where('isActive', true)->get();
+        $toko = AlamatToko::create($request->all());
         return $this->success($toko);
+        //
     }
 
     public function show($id) {
@@ -34,9 +40,8 @@ class AlamatTokoController extends Controller
         return $this->success($alamat);
     }
 
-    public function edit($id)
-    {
-        # code...
+    public function edit($id) {
+        //
     }
 
     public function update(Request $request, $id) {
@@ -49,33 +54,30 @@ class AlamatTokoController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        $alamat = AlamatToko::where ('id',$id)->firts();
+    public function destroy($id) {
+        $alamat = AlamatToko::where('id', $id)->first();
         if ($alamat) {
             $alamat->update([
                 'isActive' => false
             ]);
             return $this->success($alamat, "Alamat berhasil dihapus");
         } else {
-            return $this->error("alamat tidak ditemukan");
+            return $this->error("Alamat tidak ditemukan");
         }
     }
 
-    public function errors($message)
-    {
-        return response()->json([
-            'code' => 400,
-            'message' => $message
-        ], 400);
-    }
-
-    public function success($data,  $message = "succes")
-    {
+    public function success($data, $message = "success") {
         return response()->json([
             'code' => 200,
             'message' => $message,
             'data' => $data
         ]);
+    }
+
+    public function error($message) {
+        return response()->json([
+            'code' => 400,
+            'message' => $message
+        ], 400);
     }
 }

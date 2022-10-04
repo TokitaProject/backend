@@ -12,24 +12,22 @@ class TokoController extends Controller
 {
     public function store(Request $request) {
         $validasi = Validator::make($request->all(), [
-            'name' => 'required',
-            // 'alamatId' => 'required',
             'userId' => 'required',
-            'kota' => 'required'
+            'name' => 'required',
+            'kota' => 'required',
         ]);
 
-        if ($validasi -> fails()) {
-            return $this->error($validasi->validasi->errors->frist());
+        if ($validasi->fails()) {
+            return $this->error($validasi->errors()->first());
         }
 
         $toko = Toko::create($request->all());
         return $this->success($toko);
     }
-
-
+    
     public function cekToko($id)
     {
-        $user = User::where('id', $id)->with('Toko')->first();
+        $user = User::where('id', $id)->with('toko')->first();
         if ($user) {
             return $this->success($user);
         }else{

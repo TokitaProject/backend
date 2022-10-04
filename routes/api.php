@@ -2,10 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-// use app\Http\Controller\Api\AuthController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TokoController;
-// use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AlamatTokoController;
 use App\Http\Controllers\Api\ProductController;
 
 /*
@@ -40,3 +39,5 @@ Route::resource('alamat-toko', AlamatTokoController::class);
 // Route::post('login', [AuthController::class, 'login']);
 // Route::post('register', [AuthController::class, 'register']);
 Route::post('products', [ProductController::class, 'store']);
+
+

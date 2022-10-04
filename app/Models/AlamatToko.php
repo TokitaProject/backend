@@ -11,7 +11,7 @@ class AlamatToko extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tokoid',
+        'tokoId',
         'alamat',
         'provinsi',
         'kota',

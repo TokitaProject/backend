@@ -53,16 +53,14 @@ class AuthController extends Controller {
     }
 
     public function update(Request $request, $id) {
-
         $user = User::where('id', $id)->first();
         if ($user) {
             $user->update($request->all());
             return $this->success($user);
         }
-
         return $this->error("tidak ada user");
     }
-
+    
     public function upload(Request $request, $id) {
         $user = User::where('id', $id)->first();
         if ($user) {
